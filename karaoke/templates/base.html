@@ -1,0 +1,31 @@
+{% import 'util.html' as util with context %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>{% block title %}Flask Karaoke Application{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        {% block css %}
+        <link rel="stylesheet" href="/static/css/main.css" />
+        {% endblock%}
+        {% block script %}
+        <script src="/static/js/main.js" type="text/javascript"></script>
+        {% endblock %}
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div id="header">{% block header %}{% endblock %}</div>
+        <div id="messages-wrap">
+            <div id="messages">
+                {% for category, msg in get_flashed_messages(with_categories=true) %}
+                <p class="message flash-{{ category }}">{{ msg }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="content">{% block content %}{% endblock %}</div>
+        <div id="footer">{% block footer %}{% endblock %}</div>
+
+        {% block tail %}
+            {{ util.fix_csrf() }}
+        {% endblock %}
+    </body>
+</html>
