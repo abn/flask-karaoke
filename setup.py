@@ -3,7 +3,21 @@
 Source build and installation script.
 """
 
+from os.path import dirname, join
+
+from pip.req import parse_requirements
 from setuptools import setup
+
+BASE_DIR = dirname(__file__)
+
+
+def get_requirements(filename='requirements.txt'):
+    return [str(r.req) for r in parse_requirements(join(BASE_DIR, filename))]
+
+
+INSTALL_REQUIREMENTS = get_requirements()
+TEST_REQUIREMENTS = INSTALL_REQUIREMENTS + get_requirements(
+    'test-requirements.txt')
 
 
 setup(
@@ -16,16 +30,6 @@ setup(
     dependency_links=[
     ],
 
-    install_requires=[
-        'Flask>=0.10',
-        'Flask-Admin>=1.0.6',
-        'Flask-Bcrypt',
-        'Flask-Cache',
-        'Flask-Login>=0.1.1',
-        'Flask-SeaSurf',
-        'Flask-SSLify',
-        'Flask-Views',
-        'Flask-WTF>=0.9.1',
-        'blinker',
-    ],
+    install_requires=INSTALL_REQUIREMENTS,
+    tests_require=TEST_REQUIREMENTS,
 )
