@@ -36,6 +36,7 @@ function virtualize()
 
     if [ -d ${DIR_NAME} ]; then
         activate $DIR_NAME
+        echo "INFO: Installing requirements"
         pip install -qr requirements.txt
         pip install -qr test-requirements.txt
     else
