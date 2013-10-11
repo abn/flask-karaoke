@@ -20,6 +20,6 @@ PROJECT_NAME=$1
 
 mv ${BASE_DIR}/karaoke "${BASE_DIR}/${PROJECT_NAME}"
 sed -i s/"PROJECT=karaoke"/"PROJECT=${PROJECT_NAME}"/ ${BASE_DIR}/contrib/activate-dev-env
-echo "" > README.md
-rm -rf .git
-rm prepare.sh
+echo "" > ${BASE_DIR}/README.md
+rm -rf ${BASE_DIR}/.git
+rm ${BASE_DIR}/prepare.sh
