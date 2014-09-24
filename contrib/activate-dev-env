@@ -6,11 +6,10 @@
 
 # use env python by default
 PYTHON_BIN=python2
-PROJECT=karaoke
+PROJECT=cvbedb
 VIRTIALENV_CMD=virtualenv
 SETUP_PY="setup.py"
-DEV_MODULE_DIR="bugzilla"
-DIR_PREFIX="venv-${PROJECT}"
+DIR_PREFIX=".venv.${PROJECT}"
 
 if [ $# -ne 0 ]; then
     PYTHON_BIN=$1

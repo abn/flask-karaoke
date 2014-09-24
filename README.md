@@ -27,5 +27,19 @@ git add .
 git commit -m "Initial commit"
 git remote add origin ${GIT_PUSH_URI}
 git push -u --force origin master
+```
+### Useful commands
+```sh
+# activate dev environment
+source contrib/activate-dev-env
+
+# start server
+python run.py
+
+# flask-script manager shell
+python manage.py shell
+
+# flask-script manager shell (alternative)
+./contrib/shell
 
 ```

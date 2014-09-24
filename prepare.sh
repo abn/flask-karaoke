@@ -19,7 +19,9 @@ fi
 PROJECT_NAME=$1
 
 mv ${BASE_DIR}/karaoke "${BASE_DIR}/${PROJECT_NAME}"
-sed -i s/"PROJECT=karaoke"/"PROJECT=${PROJECT_NAME}"/ ${BASE_DIR}/contrib/activate-dev-env
+sed -i s/"PROJECT=karaoke"/"PROJECT=${PROJECT_NAME}"/ \
+    ${BASE_DIR}/contrib/activate-dev-env
+sed -i s/"from karaoke"/"from $PROJECT_NAME"/ ${BASE_DIR}/run.py
 echo "" > ${BASE_DIR}/README.md
 rm -rf ${BASE_DIR}/.git
 rm ${BASE_DIR}/prepare.sh

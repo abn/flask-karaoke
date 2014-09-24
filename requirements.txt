@@ -7,4 +7,5 @@ Flask-SeaSurf
 Flask-SSLify
 Flask-Views
 Flask-WTF>=0.9.1
+Flask-Script
 blinker
